@@ -46,7 +46,7 @@ h3:hover{
 .header_burger{
     display: none;
 }
-@media (max-width:800px) {
+@media (max-width:1000px) {
     .header{
         display: none;
     }
@@ -62,12 +62,13 @@ h3:hover{
         position: relative;
         gap: 5%;
     }
-    .icon{
+    .icons{
         display: flex;
         flex-direction: row;
         align-items: center;
+        gap: 2rem;
     }
-    .icon i{
+    .icons i{
         font-size: 2rem;
     }
     .menu_slide{
@@ -90,5 +91,14 @@ h3:hover{
     }
     .slide{
         right: 0;
+    }
+}
+
+@media (max-width:600px){
+    .icons{
+        gap: 1rem;
+    }
+    .icons i{
+        font-size: 1.5rem;
     }
 }
