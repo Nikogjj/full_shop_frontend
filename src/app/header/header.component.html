@@ -1,0 +1,46 @@
+<div class="header">
+    <div class="logo">
+        <img src="logo.png" alt="">
+    </div>
+    <div class="middle">
+        @if (!isOnSearch) {
+            <h3>ACCUEIL</h3>
+            <h3>CLUBS</h3>
+            <h3>EQUIPES NAT</h3>
+            <h3>MAILLOTS</h3>
+            <h3>CHAUSSURES</h3>
+        }
+        @else {
+            <input type="text" placeholder="Recherchez votre produit...">
+        }
+    </div>
+    <div class="container_icons">
+        @if (!isOnSearch) {
+            <i (click)="clickOnSearchButton()" class="fa-solid fa-magnifying-glass"></i>
+        }
+        @else {
+            <i (click)="clickOnSearchButton()" class="fa-solid fa-xmark"></i>
+        }
+        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-user"></i>
+    </div>
+
+</div>
+<div class="header_burger">
+    <div class="logo">
+        <img src="logo.png" alt="">
+    </div>
+    <div class="middle">
+        <input type="text" placeholder="Recherchez un produit">
+    </div>
+    <div class="icon">
+        <i (click)="clickOnMenuBurger()" class="fa-solid fa-bars"></i>
+        <div [className]="className()" class="menu_slide">
+            <h3>ACCUEIL</h3>
+            <h3>CLUBS</h3>
+            <h3>EQUIPES NAT</h3>
+            <h3>MAILLOTS</h3>
+            <h3>CHAUSSURES</h3>
+        </div>
+    </div>
+</div>
