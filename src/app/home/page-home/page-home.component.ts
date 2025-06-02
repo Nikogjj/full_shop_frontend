@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { HeroSectionComponent } from '../hero-section/hero-section.component';
+import { CarouselHeroSectionComponent } from '../../carousels/hero-section/carousel-hero-section/carousel-hero-section.component';
 
 @Component({
   selector: 'app-page-home',
-  imports: [HeroSectionComponent],
+  imports: [CarouselHeroSectionComponent],
   templateUrl: './page-home.component.html',
   styleUrl: './page-home.component.css',
   animations:[

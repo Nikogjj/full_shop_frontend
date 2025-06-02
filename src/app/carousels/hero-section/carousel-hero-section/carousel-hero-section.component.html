@@ -1,0 +1,10 @@
+<div class="carousel-wrapper">
+    <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+      @for (slide of slides; track $index) {
+        <app-carousel-slide [infoSlide]="slide"></app-carousel-slide>
+      }
+    </div>
+  
+    <button class="nav left" (click)="prev()">‹</button>
+    <button class="nav right" (click)="next()">›</button>
+  </div>
