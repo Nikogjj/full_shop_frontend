@@ -1,0 +1,54 @@
+<div class="panier-container">
+  <div class="panier-header">
+    <h1 class="panier-title">Mon Panier</h1>
+    <p class="panier-subtitle">Vos articles sélectionnés</p>
+  </div>
+
+  <div class="panier-content">
+    <div class="panier-items">
+      @for (product of this.panierService.panier; track $index) {
+        <app-product-panier-card [id]="product.id" [quantity]="product.quantity"></app-product-panier-card>
+      }
+
+      @if (this.panierService.panier.length == 0) {
+        <div class="panier-empty">
+          <div class="empty-icon">🛒</div>
+          <h3>Votre panier est vide</h3>
+          <p>Découvrez nos produits et ajoutez-les à votre panier</p>
+          <button class="continue-shopping-btn">Continuer mes achats</button>
+        </div>
+      }
+    </div>
+
+    <div class="panier-summary">
+      <div class="summary-card">
+        <h3 class="summary-title">Résumé de la commande</h3>
+        
+        <div class="summary-line">
+          <span>Sous-total (2 articles)</span>
+          <span>239,98 €</span>
+        </div>
+        
+        <div class="summary-line">
+          <span>Livraison</span>
+          <span>Gratuite</span>
+        </div>
+        
+        <hr class="summary-divider">
+        
+        <div class="summary-total">
+          <span>Total</span>
+          <span>{{ panierService.totalPrice }} €</span>
+        </div>
+        
+        <button class="checkout-btn">
+          Procéder au paiement
+        </button>
+        
+        <button (click)="test()" class="continue-shopping-link">
+          Continuer mes achats
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

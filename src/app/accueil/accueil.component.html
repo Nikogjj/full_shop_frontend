@@ -1,0 +1,24 @@
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>Bienvenue sur <span class="highlight">FootStyleShop</span></h1>
+    <p>Découvrez notre collection exclusive d'équipements de football</p>
+    <div class="hero-buttons">
+      <button (click)="navigateTo('produits')" class="btn-primary">Découvrir nos produits</button>
+      <button class="btn-secondary">Nos offres spéciales</button>
+    </div>
+  </div>
+</section>
+
+<div class="accueil-container">
+  <app-carousel 
+    title="Nos catégories"
+    componentType="category">
+  </app-carousel>
+
+  <app-carousel 
+    title="Nos produits phares"
+    componentType="product">
+  </app-carousel>
+
+  <!-- <app-footer></app-footer> -->
+</div>

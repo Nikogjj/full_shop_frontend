@@ -1,29 +1,31 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-
 export class HeaderComponent {
-  isOnSearch :boolean = false;
-  isOnMenuBurger : boolean = false;
+  router : Router = new Router()
+  menuOpen = false;
+  isMobileMenuOpen = false;
 
-  clickOnSearchButton(){
-    this.isOnSearch = !this.isOnSearch;
-    }
-
-  clickOnMenuBurger(){
-    this.isOnMenuBurger = !this.isOnMenuBurger
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
-  className(){
-    if (!this.isOnMenuBurger) {
-      return "menu_slide"
-    }
-    else{
-      return "menu_slide slide"
-    }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+  }
+
+  navigateTo(path: string) {
+    this.router.navigate([`${path}`]);
   }
 }

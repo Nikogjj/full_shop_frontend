@@ -1,0 +1,28 @@
+<div class="product-card">
+  <div class="product-image">
+    <img [src]="product.image" [alt]="product.name">
+    @if (product.isOnSale) {
+      <div class="sale-badge">PROMO</div>
+    }
+  </div>
+  
+  <div class="product-info">
+    <div class="product-category">{{ product.category }}</div>
+    <h3 class="product-name">{{ product.name }}</h3>
+    
+    <div class="product-rating" *ngIf="product.rating">
+      @for (star of [1,2,3,4,5]; track star) {
+        <span class="star" [class.filled]="star <= product.rating!">★</span>
+      }
+    </div>
+    
+    <div class="product-price">
+      @if (product.originalPrice && product.isOnSale) {
+        <span class="original-price">{{ product.originalPrice }}€</span>
+      }
+      <span class="current-price" [class.sale-price]="product.isOnSale">{{ product.price }}€</span>
+    </div>
+    
+    <button class="add-to-cart-btn">Voir le produit</button>
+  </div>
+</div>

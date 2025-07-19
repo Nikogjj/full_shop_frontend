@@ -1,0 +1,36 @@
+<div class="produits-container">
+  <div class="produits-header">
+    <h1 class="produits-title">Nos Produits</h1>
+    <p class="produits-subtitle">Découvrez notre collection complète d'équipements de football</p>
+  </div>
+
+  <div class="produits-layout">
+    <!-- Composant filtres -->
+    <aside class="filters-sidebar">
+      <app-filters></app-filters>
+    </aside>
+
+    <!-- Section principale des produits -->
+    <main class="products-main">
+      <div class="products-header">
+        <div class="products-count">
+          <span>{{ products.length }} produit(s) trouvé(s)</span>
+        </div>
+      </div>
+
+      <div class="products-grid">
+        @for (product of products; track product.id) {
+          <app-product-card [product]="product"></app-product-card>
+        }
+      </div>
+
+      @if (products.length === 0) {
+        <div class="no-products">
+          <div class="no-products-icon">📦</div>
+          <h3>Aucun produit trouvé</h3>
+          <p>Essayez de modifier vos filtres ou votre recherche</p>
+        </div>
+      }
+    </main>
+  </div>
+</div>

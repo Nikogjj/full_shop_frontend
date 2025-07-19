@@ -1,0 +1,59 @@
+<section class="carousel-section">
+  <h2>{{ title }}</h2>
+  
+  <div class="carousel-container">
+    <button 
+      class="carousel-btn carousel-btn-prev" 
+      (click)="prevSlide()"
+      [disabled]="!canGoPrev">
+      <img src="/arrow-left.svg" alt="Précédent">
+    </button>
+    
+    <div class="carousel-wrapper">
+      <div 
+        class="carousel-track" 
+        [style.transform]="'translateX(-' + (currentIndex * (100 / itemsPerView)) + '%)'">
+        @if (componentType === 'category') {
+          @for (category of mockCategories; track category.id) {
+            <div 
+              class="carousel-item"
+              [style.flex]="'0 0 ' + (100 / itemsPerView) + '%'"
+              [style.width]="(100 / itemsPerView) + '%'">
+              <div class="carousel-item-inner">
+                <app-category-card [category]="category"></app-category-card>
+              </div>
+            </div>
+          }
+        } @else if (componentType === 'product') {
+          @for (product of mockProducts; track product.id) {
+            <div 
+              class="carousel-item"
+              [style.flex]="'0 0 ' + (100 / itemsPerView) + '%'"
+              [style.width]="(100 / itemsPerView) + '%'">
+              <div class="carousel-item-inner">
+                <app-product-card [product]="product"></app-product-card>
+              </div>
+            </div>
+          }
+        }
+      </div>
+    </div>
+    
+    <button 
+      class="carousel-btn carousel-btn-next" 
+      (click)="nextSlide()"
+      [disabled]="!canGoNext">
+      <img src="/arrow-right.svg" alt="Suivant">
+    </button>
+  </div>
+  
+  <div class="carousel-indicators">
+    @for (indicator of visibleIndicators; track indicator) {
+      <button 
+        class="indicator"
+        [class.active]="isIndicatorActive(indicator)"
+        (click)="goToElement(indicator)">
+      </button>
+    }
+  </div>
+</section>

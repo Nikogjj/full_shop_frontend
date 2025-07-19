@@ -1,0 +1,29 @@
+<div class="panier-item">
+  <div class="item-image">
+    @if (this.productToDisplay.images[0]==undefined) {
+        <img src="defaut-image.png" alt="" class="product-image">
+    }
+    @else {
+        <img src="http://localhost:8000/{{ productToDisplay.images[0].url }}" alt="" class="product-image">
+    }
+        <!-- <img src="defaut-image.png" alt="" class="product-image"> -->
+    
+  </div>
+  <div class="item-details">
+    <h3 class="product-name">{{ productToDisplay.name }}</h3>
+    <p class="product-description">{{ productToDisplay.description }}</p>
+    <div class="item-controls">
+      <div class="quantity-controls">
+        <button (click)="modifyQuantity('moins')" class="quantity-btn">-</button>
+        <span class="quantity">{{ quantityValue }}</span>
+        <button (click)="modifyQuantity('plus')" class="quantity-btn">+</button>
+      </div>
+      <button class="remove-btn">
+        <span>Supprimer</span>
+      </button>
+    </div>
+  </div>
+  <div class="item-price">
+    <span class="price">{{ productToDisplay.price }} €</span>
+  </div>
+</div>

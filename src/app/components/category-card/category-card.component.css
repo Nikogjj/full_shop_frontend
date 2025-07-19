@@ -1,0 +1,136 @@
+.category-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 300px;
+  /* background: #f8fafc; */
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.category-card:hover {
+  /* transform: translateY(-5px); */
+  box-shadow: 0 10px 15px #e7d2a95d;
+}
+
+.category-image {
+  /* position: relative; */
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-image img {
+  transform: scale(1.2);
+}
+
+.category-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+
+  display: flex;
+  align-items: center;
+  /* padding: 30px; */
+  /* opacity: 0; */
+  transition: opacity 0.3s ease;
+}
+
+.category-overlay:hover{
+      background: linear-gradient(
+    rgba(0, 0, 0, 0.1) 0%,
+    /* rgba(0, 0, 0, 0.3) 33%, */
+    rgba(0, 0, 0, 0.4) 66%,
+    rgb(0, 0, 0) 100%
+  );
+}
+
+/* .category-card:hover .category-overlay {
+  opacity: 1;
+} */
+
+.category-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.category-content h2 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgb(0, 0, 0);
+}
+
+.category-content p {
+  text-shadow: 0 1px 2px rgb(0, 0, 0);
+  font-size: 0.9rem;
+  font-weight: 800;
+  /* width: fit-content; */
+  /* margin-bottom: 20px; */
+  line-height: 1.4;
+  /* padding: 5px; */
+  /* background-color: #e7d2a9; */
+}
+
+.btn-category {
+  background: #e7d2a9;
+  color: black;
+  border: none;
+  padding: 12px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 4px solid transparent;
+}
+
+.btn-category:hover {
+  background: transparent;
+  transform: scale(1.05);
+  /* border-color: #e7d2a9; */
+  color: black;
+  background-color: #e7d2a9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .category-card {
+    height: 250px;
+  }
+  
+  .category-overlay {
+    padding: 20px;
+  }
+  
+  .category-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .category-content p {
+    font-size: 0.8rem;
+  }
+  
+  .btn-category {
+    padding: 10px 20px;
+    font-size: 0.8rem;
+  }
+}

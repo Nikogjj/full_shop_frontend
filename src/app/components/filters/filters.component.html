@@ -1,0 +1,106 @@
+<div class="filters-container">
+  <div class="filters-toggle" (click)="toggleFilters()">
+    <h3 class="filters-title">Filtres</h3>
+    <div class="toggle-arrow" [class.expanded]="filtersExpanded">
+      <svg viewBox="0 0 24 24" width="20" height="20">
+        <path d="M7 10l5 5 5-5z" fill="currentColor"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="filters-content" [class.expanded]="filtersExpanded">
+    <div class="filters-header">
+      <button class="clear-filters-btn" (click)="clearAllFilters()">
+        Effacer tout
+      </button>
+    </div>
+
+    <!-- Recherche -->
+    <div class="filter-section">
+      <h4 class="section-title">Recherche</h4>
+      <div class="search-container">
+        <input 
+          type="text" 
+          placeholder="Rechercher un produit..."
+          class="search-input"
+          [(ngModel)]="searchTerm"
+          (input)="onSearchChange()">
+      </div>
+    </div>
+
+    <!-- Catégories -->
+    <div class="filter-section">
+      <h4 class="section-title">Catégories</h4>
+      <div class="category-list">
+        @for (category of categories; track category.id) {
+          <label class="category-item">
+            <input 
+              type="checkbox" 
+              [checked]="category.selected"
+              (change)="onCategoryChange(category.id)"
+              class="category-checkbox">
+            <span class="category-name">{{ category.name }}</span>
+          </label>
+        }
+      </div>
+    </div>
+
+    <!-- Prix -->
+    <div class="filter-section">
+      <h4 class="section-title">Prix</h4>
+      
+      <!-- Fourchette de prix -->
+      <div class="price-range">
+        <div class="price-inputs">
+          <div class="price-input-group">
+            <label for="minPrice">Min (€)</label>
+            <input 
+              type="number" 
+              id="minPrice"
+              [(ngModel)]="priceFilter.min"
+              (input)="onPriceChange()"
+              class="price-input"
+              min="0">
+          </div>
+          <div class="price-input-group">
+            <label for="maxPrice">Max (€)</label>
+            <input 
+              type="number" 
+              id="maxPrice"
+              [(ngModel)]="priceFilter.max"
+              (input)="onPriceChange()"
+              class="price-input"
+              min="0">
+          </div>
+        </div>
+      </div>
+
+      <!-- Tri par prix -->
+      <div class="price-sort">
+        <label for="priceSort" class="sort-label">Trier par prix</label>
+        <select 
+          id="priceSort"
+          [(ngModel)]="priceFilter.sort"
+          (change)="onSortChange()"
+          class="sort-select">
+          <option value="">Aucun tri</option>
+          <option value="asc">Prix croissant</option>
+          <option value="desc">Prix décroissant</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Tri alphabétique -->
+    <div class="filter-section">
+      <h4 class="section-title">Ordre alphabétique</h4>
+      <select 
+        [(ngModel)]="alphabeticalSort"
+        (change)="onSortChange()"
+        class="sort-select">
+        <option value="">Aucun tri</option>
+        <option value="asc">A → Z</option>
+        <option value="desc">Z → A</option>
+      </select>
+    </div>
+  </div>
+</div>

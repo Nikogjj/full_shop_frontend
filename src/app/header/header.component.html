@@ -1,63 +1,36 @@
-<div class="header">
-    <div class="logo">
-        <img src="logo.png" alt="">
-    </div>
-    <div class="middle">
-        @if (!isOnSearch) {
-            <h3>ACCUEIL</h3>
-            <h3>CLUBS</h3>
-            <h3>EQUIPES NAT</h3>
-            <h3>MAILLOTS</h3>
-            <h3>CHAUSSURES</h3>
-        }
-        @else {
-            <input type="text" placeholder="Recherchez votre produit...">
-        }
-    </div>
-    <div class="container_icons">
-        @if (!isOnSearch) {
-            <i (click)="clickOnSearchButton()" class="fa-solid fa-magnifying-glass"></i>
-        }
-        @else {
-            <i (click)="clickOnSearchButton()" class="fa-solid fa-xmark"></i>
-        }
-        <i class="fa-solid fa-cart-shopping"></i>
-        <i class="fa-solid fa-user"></i>
-    </div>
-
+<div class="msg_livraison">
+  <div class="msg_livraison_content">
+    <h2>Livraison rapide</h2>
+    <p>Recevez vos produits en 48h</p>
+  </div>
 </div>
-<div class="header_burger">
-    <div class="logo">
-        <img src="logo.png" alt="">
+<div class="header">
+  <div class="logo">
+    <img (click)="navigateTo('accueil')" src="logo.png" alt="Logo">
+  </div>
+  <nav class="nav-links">
+    <a (click)="navigateTo('accueil')">ACCUEIL</a>
+    <a (click)="navigateTo('produits')">PRODUITS</a>
+    <a (click)="navigateTo('maillots')">MAILLOTS</a>
+    <a (click)="navigateTo('chaussures')">CHAUSSURES</a>
+    <a (click)="navigateTo('equipement')">EQUIPEMENT</a>
+    <!-- <a (click)="navigateTo('soldes')">SOLDE</a> -->
+  </nav>
+  <div class="actions-container">
+    <div class="search-bar">
+      <input type="text" placeholder="Rechercher des produits...">
+      <img src="search.svg" alt="search">
     </div>
-    <div class="middle">
-        <input type="text" placeholder="Recherchez un produit">
-    </div>
-    <div class="icons">
-        <i class="fa-solid fa-cart-shopping"></i>
-        <i class="fa-solid fa-user"></i>
-        <i (click)="clickOnMenuBurger()" class="fa-solid fa-bars"></i>
-        <div [className]="className()" class="menu_slide">
-            <div class="categories_slide">
-                <h3>ACCUEIL</h3>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
-            <div class="categories_slide">
-                <h3>CLUBS</h3>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
-            <div class="categories_slide">
-                <h3>EQUIPES NAT</h3>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
-            <div class="categories_slide">
-                <h3>MAILLOTS</h3>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
-            <div class="categories_slide">
-                <h3>CHAUSSURES</h3>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
-        </div>
-    </div>
+    <img (click)="navigateTo('panier')" src="basket.svg" alt="Panier">
+    <img (click)="navigateTo('login')" src="user.svg" alt="Utilisateur">
+    <img src="burger.svg" alt="Menu" class="burger-menu" (click)="toggleMobileMenu()">
+  </div>
+  <div class="mobile-nav" [class.active]="isMobileMenuOpen">
+    <a (click)="navigateTo('accueil'); closeMobileMenu()">ACCUEIL</a>
+    <a (click)="navigateTo('produits'); closeMobileMenu()">PRODUITS</a>
+    <a (click)="navigateTo('maillots'); closeMobileMenu()">MAILLOTS</a>
+    <a (click)="navigateTo('chaussures'); closeMobileMenu()">CHAUSSURES</a>
+    <a (click)="navigateTo('equipement'); closeMobileMenu()">EQUIPEMENT</a>
+    <!-- <a (click)="navigateTo('soldes'); closeMobileMenu()">SOLDE</a> -->
+  </div>
 </div>
